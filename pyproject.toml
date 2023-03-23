@@ -6,6 +6,8 @@ authors = ["danb27 <danbianchini@outlook.com>"]
 readme = "README.md"
 packages = [{include = "chatty_debug"}]
 license = "MIT"
+repository = "https://github.com/danb27/chatty-debug"
+keywords = ["chatgpt", "debugging", "optimization", "refactoring"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
