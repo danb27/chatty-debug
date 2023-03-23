@@ -1,0 +1,21 @@
+# This workflow will run one or more jobs in parallel on any commit pushed to
+# remote.
+
+name: Test Package and Lint
+
+on: push
+
+jobs:
+  # Run hooks with pre-commit
+  pre-commit:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - name: Run pre-commit hooks
+      uses: pre-commit/action@v3.0.0

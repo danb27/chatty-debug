@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "chatty-debug"
+version = "1.0.1"
+description = "Package for debugging python using ChatGPT"
+authors = ["danb27 <danbianchini@outlook.com>"]
+readme = "README.md"
+packages = [{include = "chat_debugger"}]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+chat-toolkit = "1.1.1"
+colorama = "^0.4.6"
+loguru = "^0.6.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "~3.1"
+
+[tool.poetry.group.flake.dependencies]
+flake8 = "5.0.4"
+flake8-bandit = "4.1.1"
+flake8-bugbear = "23.2.13"
+flake8-builtins = "2.1.0"
+flake8-comprehensions = "3.10.1"
+flake8-eradicate = "1.4.0"
+flake8-functions = "0.0.7"
+flake8-gl-codeclimate = "0.2.1"
+flake8-logging-format = "0.9.0"
+flake8-pyproject = "1.2.2"
+flake8-variables-names = "0.0.5"
+pep8-naming = "0.13.3"
+tryceratops = "1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+ignore = ["W503"]
+max-line-length = 79
+exclude = [
+    ".git", ".venv", ".pyenv", "pytest_cache", "__pycache__", "idea",
+    ".vscode", "venv", "notebooks", ".ipynb_checkpoints"
+]
+per-file-ignores = """
+    test_suite/*: S101
+"""
+
+[tool.vulture]
+paths = ["chatty_debug"]
+min_confidence = 80
+
+[tool.isort]
+line_length = 79
+profile = "black"
+
+[tool.black]
+line-length = 79
+target-version = ["py39"]
+
+[tool.mypy]
+python_version = "3.9"
+explicit_package_bases = true
