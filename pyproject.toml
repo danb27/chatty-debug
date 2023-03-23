@@ -4,7 +4,7 @@ version = "1.0.1"
 description = "Package for debugging python using ChatGPT"
 authors = ["danb27 <danbianchini@outlook.com>"]
 readme = "README.md"
-packages = [{include = "chat_debugger"}]
+packages = [{include = "chatty_debug"}]
 license = "MIT"
 
 [tool.poetry.dependencies]

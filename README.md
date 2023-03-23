@@ -12,6 +12,11 @@
 Use ChatGPT to debug your python code
 
 
+## Installation
+
+`pip install -U chatty-debug`
+
+
 ## Basic Usage
 
 ### Function decorator
