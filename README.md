@@ -1,11 +1,15 @@
 <!-- TOC -->
 * [Chatty Debug](#chatty-debug)
+  * [Installation](#installation)
   * [Basic Usage](#basic-usage)
     * [Function decorator](#function-decorator)
     * [Script Wrapper](#script-wrapper)
     * [Response](#response)
   * [Advanced Usage](#advanced-usage)
     * [Response](#response-1)
+  * [Chatty Improvements](#chatty-improvements)
+    * [Basic usage:](#basic-usage-)
+    * [Response](#response-2)
 <!-- TOC -->
 
 # Chatty Debug
@@ -22,8 +26,6 @@ Use ChatGPT to debug your python code
 ## Basic Usage
 
 ### Function decorator
-
-Basic Usage:
 
 ```python
 from chatty_debug import chatty_debug
@@ -42,7 +44,6 @@ if __name__ == "__main__":
 
 ### Script Wrapper
 
-<a id="foo"></a>
 ```python
 # foo.py
 
@@ -92,3 +93,35 @@ from [above](#script-wrapper), you can also do this command:
 ### Response
 
 ![Portuguese Response](docs/portuguese_response.png)
+
+## Chatty Improvements
+
+chatty-debug can also suggest improvements for your code.
+
+### Basic usage:
+
+Without further configuration, the decorator will submit a default prompt 
+presenting your function. ChatGPT will then be asked to suggest 
+improvements to it. It will then be asked to suggest some tests to improve 
+it. These default prompts can be edited, removed, and added to. 
+
+```python
+from chatty_debug import suggest_improvements
+
+
+@suggest_improvements()   # () is required
+def foo(value, set=set()):
+    list=list(set)
+    for val1 in list:
+        if value == val1:
+            return True
+    return False
+
+
+if __name__ == '__main__':
+    foo()
+```
+
+### Response
+
+![Suggested Improvements](docs/suggested_improvements.png)
