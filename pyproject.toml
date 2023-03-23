@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chatty-debug"
-version = "1.0.1"
+version = "1.0.2"
 description = "Package for debugging python using ChatGPT"
 authors = ["danb27 <danbianchini@outlook.com>"]
 readme = "README.md"

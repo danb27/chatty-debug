@@ -16,6 +16,8 @@ Use ChatGPT to debug your python code
 
 `pip install -U chatty-debug`
 
+**NOTE**: Requires OPENAI_API_KEY environment variable
+
 
 ## Basic Usage
 

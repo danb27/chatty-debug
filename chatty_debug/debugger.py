@@ -1,11 +1,9 @@
 import sys
 import traceback
 from functools import wraps
-from typing import Optional
 
 from chat_toolkit import OpenAIChatBot
 from colorama import Fore, Style, just_fix_windows_console
-from loguru import logger
 
 just_fix_windows_console()
 
@@ -27,7 +25,7 @@ def _trim_traceback(tb_list: list[str], file_path: str):
 
 
 def chatty_debug(
-    prompt: Optional[str] = "Help me debug the following python error.",
+    prompt: str = "Help me debug the following python error.",
     runpy_mode: bool = False,
 ):
     """
@@ -39,8 +37,6 @@ def chatty_debug(
     runpy.
     :return: Wrapped function's return value.
     """
-    if not prompt:
-        logger.warning("It is highly recommended to use a prompt")
 
     def decorator(func):
         @wraps(func)
@@ -63,11 +59,6 @@ def chatty_debug(
                 else:
                     tb_list = _trim_traceback(tb_list, "debugger.py")
                 tb_string = "\n".join(tb_list)
-
-                import re
-
-                pattern = r'"[^"]*"'
-                tb_string = re.sub(pattern, "C:\\***", tb_string)
 
                 print(f"{Fore.RED}{tb_string}{Style.RESET_ALL}\n\n")
                 chat = OpenAIChatBot()
