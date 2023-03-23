@@ -100,10 +100,10 @@ chatty-debug can also suggest improvements for your code.
 
 ### Basic usage:
 
-Without further configuration, the decorator will submit a default prompt 
-presenting your function. ChatGPT will then be asked to suggest 
-improvements to it. It will then be asked to suggest some tests to improve 
-it. These default prompts can be edited, removed, and added to. 
+Without further configuration, the decorator will submit a default prompt
+presenting your function. ChatGPT will then be asked to suggest
+improvements to it. It will then be asked to suggest some tests to improve
+it. These default prompts can be edited, removed, and added to.
 
 ```python
 from chatty_debug import suggest_improvements
